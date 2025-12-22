@@ -22,19 +22,6 @@ class Address:
 
 # --- 테스트 코드 ---
 
-# 1. 초기 생성 (ID: 1)
 address = Address(name="홍길동", phone="010-1234-5678")
-print(f"홍길동 ID: {address.get_id()}")
+address.hometown = "서울"  # __slots__로 인해 새로운 속성 추가 불가
 
-# 2. 소멸 유도 (카운트 2 -> 1로 감소)
-address = None 
-
-# 3. 클래스 메서드를 이용한 번호표 강제 재설정
-Address.method2(100) # auto_increment를 100으로 변경
-
-# 4. 새로운 인스턴스 생성 (ID: 100)
-address2 = Address(name="김철수", phone="010-9876-5432")
-print(f"김철수 ID: {address2.get_id()}")
-
-address3 = Address(name="이영희")
-print(f"이영희 ID: {address3.get_id()}")
