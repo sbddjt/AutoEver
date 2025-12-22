@@ -1,4 +1,34 @@
-## Getter와 Setter (접근자 메서드)
+# 📑 Python: 속성(Attribute)과 접근 제어
+
+## 1. Attribute (Property)
+
+> 클래스 내부에 선언하여 데이터를 저장하는 공간.
+> 
+
+### 📋 속성의 종류와 특징
+
+- **클래스 속성**: 클래스 내부에 선언되어 클래스와 모든 인스턴스가 공유함.
+- **인스턴스 속성**: 특정 인스턴스에만 생성되어 해당 인스턴스만 사용함.
+
+### ⚠️ 수정 시 주의사항 (Shadowing 원리)
+
+1. **클래스를 이용해 수정**: `Address.num = 10`처럼 수정하면 원본 클래스 내부 값이 바뀌며, 이를 공유하는 모든 인스턴스의 값도 바뀝니다.
+2. **인스턴스를 이용해 수정**: `address.num = 20`처럼 수정하면, 원본 클래스 값은 건드리지 않고 **인스턴스 내부에 별도의 속성을 생성**하여 저장합니다.
+
+---
+
+## 2. 비교 연산자: `==` vs `is`
+
+파이썬에서 객체를 비교할 때 사용하는 두 연산자는 목적이 완전히 다릅니다.
+
+| **연산자** | **비교 대상** | **설명** |
+| --- | --- | --- |
+| **`==`** | **Value (값)** | 두 객체가 가진 데이터 내용이 같은지 확인 |
+| **`is`** | **ID (주소)** | 두 객체가 메모리상에서 동일한 위치(식별자)인지 확인 |
+
+---
+
+## 3. Getter와 Setter (접근자 메서드)
 
 객체 지향에서는 속성에 직접 접근(`obj.num = 10`)하는 것보다 메서드를 거치는 것을 권장합니다. (정보 은닉 및 데이터 무결성 유지)
 
@@ -40,19 +70,18 @@ print("------------")
 Address.num = 10
 print(Address.num)
 print(address.num)
-print(id(Address.num))
-print(id(address.num))
+print(id(Address.num)) # 10
+print(id(address.num)) # 10
 print("------------")
 # 인스턴스를 이용해서 수정: 인스턴스 안에 별도로 생성하고 클래스의 속성은 변경하지 않음
 address.num = 20
 print(Address.num)
 print(address.num)
-print(id(Address.num))
-print(id(address.num))
+print(id(Address.num)) # 10
+print(id(address.num)) # 20 
 print("------------")
 ```
 
-![image.png](attachment:4aedca7a-ccf5-4935-af3a-7bc94c4571fa:image.png)
 
 ---
 
