@@ -45,7 +45,6 @@ class Singleton:
         if cls.__instance is None:
             cls.__instance = object.__new__(cls, *args, **kwargs)
         return cls.__instance
-    
 
 # 싱글톤 클래스를 상속받으면 이 클래스는 싱글톤 디자인 패턴을 적용한 클래스가 됩니다.
 class Sub(Singleton):
