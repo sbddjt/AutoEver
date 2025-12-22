@@ -12,9 +12,13 @@ print("------------")
 Address.num = 10
 print(Address.num)
 print(address.num)
+print(id(Address.num)) # 140727410455960
+print(id(address.num)) # 140727410455960
 print("------------")
 # 인스턴스를 이용해서 수정: 인스턴스 안에 별도로 생성하고 클래스의 속성은 변경하지 않음
 address.num = 20
 print(Address.num)
 print(address.num)
+print(id(Address.num)) # 140727410455960
+print(id(address.num)) # 140727410456280
 print("------------")
