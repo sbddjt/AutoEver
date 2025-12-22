@@ -1,6 +1,16 @@
 class Address:
     auto_increment = 1
-    
+
+    @staticmethod
+    def method1(initValue):
+	    print("이 메서드로 하는 일은 일반적으로 static 변수의 초기화를 수행합니다.")
+        Address.auto_increment = initValue
+
+    @classmethod
+    def method2(cls, initValue):
+        print("이 메서드로 하는 일은 일반적으로 static 변수의 초기화를 수행합니다.")
+        Address.auto_increment = initValue
+
     def __init__(self, name, phone = "전화번호없음"):
         self.id = Address.auto_increment
         self.name = name
