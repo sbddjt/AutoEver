@@ -1,17 +1,8 @@
 class Address:
     auto_increment = 1
 
-    # Static Method: 클래스나 인스턴스 정보가 필요 없을 때 사용
-    @staticmethod
-    def method1(initValue):
-        print(f"--- Static Method: 초기값을 {initValue}로 강제 설정합니다. ---")
-        Address.auto_increment = initValue
-
-    # Class Method: 클래스 자체(cls)에 접근할 때 사용 (추천 방식)
-    @classmethod
-    def method2(cls, initValue):
-        print(f"--- Class Method: {cls.__name__} 클래스의 변수를 {initValue}로 초기화합니다. ---")
-        cls.auto_increment = initValue
+    # 속성을 제한하는 속성
+    __slots__ = ['id', 'name', 'phone']
 
     def __init__(self, name, phone="전화번호없음"):
         self.id = Address.auto_increment
