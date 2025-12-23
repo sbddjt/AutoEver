@@ -1,3 +1,5 @@
+---
+
 # 📂 파일 처리 및 네트워크 개요
 
 ## 1. 파일 처리의 기본 원리 ⚙️
@@ -53,8 +55,8 @@
     - **인코딩**: `ms949`, `cp949`, `euckr` 등을 지정하며, 생략 시 시스템 기본 인코딩이 적용됩니다.
 - **기록 방법**:
     - `파일포인터.write(내용)`: 일반적인 문자열 기록.
-    - `writelines()`: 줄바꿈(`\n`)이 포함된 리스트 등을 한꺼번에 기록할 때 사용합니다.
-    - `join()`: 문자열 사이에 특정 구분자를 넣어 기록할 때 유용합니다.
+    - `파일포인터.writelines(리스트)`: 줄바꿈(`\n`)이 포함된 리스트 등을 한꺼번에 기록할 때 사용합니다.
+    - `''join(리스트)`: 문자열 사이에 특정 구분자를 넣어 기록할 때 유용합니다.
 
 ### **📖 파일 읽기 (Read)**
 
@@ -74,3 +76,121 @@
 - **상대 경로 (Relative Path)**: 현재 작업 중인 디렉토리를 기준으로 경로를 설정하는 방식입니다.
     - `./` : 현재 디렉토리 (생략 가능)
     - `../` : 상위 디렉토리
+
+---
+
+## 💻 실습 코드 (File I/O)
+
+### 🔹 파일 기록 및 읽기 예제
+
+```python
+# 1. 파일 쓰기 예제
+try:
+    # 파일을 기록할 수 있도록 open
+    file = open('./test.txt', 'w')
+
+    # 파일에 한번에 기록
+    file.write("Hello Python")
+    file.write("\n\n")
+
+    # 줄바꿈이 있는 문자열을 줄 단위로 기록
+    msg = "Hello\nPython"
+    file.writelines(msg)
+    file.write(''.join(msg))
+
+except Exception as e:
+    print("파일 처리 중 예외 발생", e)
+finally:
+    file.close()
+
+# 2. 파일 읽기 예제
+try:
+    # 파일을 읽어올 수 있도록 open
+    file = open("./test.txt")
+
+    '''# 한 번에 읽기
+    msg = file.read()
+    print(msg)'''
+
+    # 줄 단위로 읽어서 처리
+    for line in file:
+        print(line)
+        print("-----------")
+    
+except Exception as e:
+    print("파일 처리 중 예외 발생", e)
+finally:
+    file.close()
+```
+
+### 🔹 문자열 조작 및 형변환
+
+```python
+# 문자열을 분할해서 문자열 list 만들기 
+msg = "123 345 765 12"
+result = msg.split(" ")
+print(result)
+
+# 문자열을 숫자로 변경하고자 할 때는 int(문자열), float(문자열)
+print(result[0] + result[1])       # 문자열 결합 (123345)
+print(int(result[0]) + int(result[1])) # 산술 연산 (468)
+```
+
+---
+
+## 7. Serializable (직렬화) 🧊
+
+> 정의: 인스턴스(객체)를 파일에 기록하거나 네트워크로 전송 가능한 형태로 변환하는 것
+> 
+- 응용 프로그램이 객체 상태 그대로 파일에 기록하고 나중에 다시 읽어올 때 사용합니다.
+
+### **⚙️ 핵심 함수**
+
+- **기록 시:** `pickle.dump(출력할 데이터, 파일객체)`
+- **읽기 시:** `pickle.load(파일객체)` (1개씩 읽기) 또는 `loads` 활용
+
+### 💡 직렬화가 필요한 이유 (Why?)
+
+- **데이터 '상태' 보존** 💾
+    - 일반 `write()`는 **문자열**만 저장하지만, 직렬화는 **데이터 타입, 변수 관계, 구조**를 통째로 저장함.
+- **복구의 편리함** ⚡
+    - 복잡한 파싱(Parsing) 과정 없이, 함수 하나로 원래 파이썬 객체로 **즉시 부활**.
+
+### **🛠️ 실무 활용 팁 (Must-Know)**
+
+| **구분** | **핵심 내용** | **비고** |
+| --- | --- | --- |
+| **바이너리 모드** | 반드시 `'wb'`, `'rb'` 모드로 열기 | 이진 데이터(Binary)이므로 필수 |
+| **클래스 유지** | 읽어올 때 소스에 **클래스 정의**가 있어야 함 | 설계도가 없으면 조립 불가 |
+| **보안 주의** | 신뢰할 수 없는 외부 `pickle` 파일은 로드 금지 | 악성 코드 실행 위험 존재 |
+
+### 💻 직렬화 실습 코드
+
+```python
+import pickle
+
+class VO:
+    def __init__ (self, num = 0, name = "nonname"):
+        self.num = num
+        self.name = name
+
+vo1 = VO(1, "adam")
+vo2 = VO(2, "eve")
+
+li = [vo1, vo2]
+
+# 객체 기록 (Binary 쓰기 모드 'wb' 필수)
+'''
+f = open('./test.txt', 'wb')
+pickle.dump(li, f)
+f.close()
+'''
+
+# 객체 읽기 (Binary 읽기 모드 'rb' 필수)
+f = open('./test.txt', 'rb')
+result = pickle.load(f)
+
+for r in result:
+    print(f"번호: {r.num}, 이름: {r.name}")
+f.close()
+```
