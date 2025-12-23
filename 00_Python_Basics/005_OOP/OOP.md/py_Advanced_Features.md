@@ -355,3 +355,214 @@ sub.greeting()
 ```
 
 ---
+# 👨‍👨‍👦 9. 다중 상속 & 추상화 (Abstract)
+
+## 1. 다중 상속 (Multiple Inheritance)
+
+### 📌 개요
+
+- **정의:** 하위 클래스가 두 개 이상의 상위 클래스로부터 속성과 기능을 물려받는 것.
+- **비유:** **스마트폰** (디지털 카메라 + MP3 플레이어 + 전화기 등 여러 기능의 결합)
+
+### ⚠️ 특징 및 주의사항
+
+- **확장성:** 여러 클래스의 기능을 모을 수 있어 확장이 매우 빠름.
+- **유지보수의 어려움:** 상위 클래스 중 하나만 수정되어도 하위 클래스에 예기치 못한 영향을 미침 (스마트폰의 수명이 상대적으로 짧은 이유와 유사).
+- **중복 문제:** 상위 클래스들에 동일한 이름의 메서드가 있을 경우, 어떤 것을 가져올지 결정하는 순서가 복잡해짐. → **권장되지 않는 패턴**
+
+---
+
+### 💻 다중 상속 구현
+
+```python
+# 다중 상속 형식
+class 상위클래스1:
+    def method1(self):
+        print("Super1의 Method")
+
+class 상위클래스2:
+    def method2(self):
+        print("Super2의 Method")
+
+# 여러 클래스를 나열하여 상속
+class Sub(상위클래스1, 상위클래스2):
+    pass
+
+sub = Sub()
+sub.method1()
+sub.method2()
+```
+
+---
+
+### 🔍 MRO (Method Resolution Order)
+
+다중 상속 시 동일한 메서드가 존재할 때 호출되는 순서를 결정하는 알고리즘입니다.
+
+> 💡 mro() 확인하기
+> 
+> 
+> 클래스이름.mro()를 호출하여 탐색 순서를 리스트 형태로 확인할 수 있습니다.
+> 
+
+```python
+class Super:
+    def method(self):
+        print("Super1의 Method")
+
+class Super2:
+    def method(self):
+        print("Super2의 Method")
+
+class Sub(Super, Super2): # 나열된 순서가 우선순위가 됨
+    pass
+
+sub = Sub()
+sub.method()  # Super(첫 번째 상속 클래스)의 method가 호출됨
+print(Sub.mro()) # [<class 'Sub'>, <class 'Super'>, <class 'Super2'>, <class 'object'>]
+```
+
+---
+
+## 2. 추상 (Abstract) : Template Programming
+
+### 📋 개념 이해
+
+- **Template (원형/모양):** 무엇을 만들지 정의하는 설계도.
+- **Implementation (구현/내용):** 실제 세부 동작을 코드로 작성하는 것.
+- **비유:** * **메뉴판(추상)**과 **음식(구현)**
+    - C언어의 **헤더파일(.h)**과 **소스파일(.c)**
+
+### 🛠 추상 클래스와 인터페이스
+
+| **구분** | **특징** |
+| --- | --- |
+| **인터페이스(Interface)** | 오직 Template(원형)만 가질 때 (파이썬에서는 프로토콜이라고도 함) |
+| **추상 클래스** | Template과 실제 구현 내용을 함께 가질 수 있음 |
+
+---
+
+### ⚖️ 추상 메서드와 추상 클래스
+
+1. **추상 메서드:** 내용이 없는 메서드로, 하위 클래스에서 **반드시 구현(Overriding)** 해야 함.
+2. **추상 클래스:** 인스턴스를 직접 만들 수 없는 클래스. 반드시 1개 이상의 추상 메서드를 포함해야 함.
+
+---
+
+### ⚙️ 파이썬에서 구현하는 방법
+
+파이썬은 `abc` (Abstract Base Class) 모듈을 사용합니다.
+
+1. `import abc`
+2. 클래스 선언 시 `(metaclass = abc.ABCMeta)` 추가
+3. 추상 메서드 위에 `@abc.abstractmethod` 데코레이터 추가
+
+```python
+import abc
+
+# 1. 추상 클래스 선언 (설계도)
+class Login(metaclass = abc.ABCMeta):
+    @abc.abstractmethod
+    def login(self, id, pw):
+        pass # 내용은 작성하지 않음
+
+# 2. 실제 구현 클래스
+class LoginImp1(Login):
+    def login(self, id, pw):
+        # 자식 클래스에서 반드시 구체적인 내용을 작성해야 함
+        print(f"{id} 계정으로 로그인을 수행합니다.")
+
+# test = Login() # 에러: 추상 클래스는 직접 인스턴스 생성 불가
+user = LoginImp1()
+user.login("seongyun", "1234")
+```
+
+---
+
+### 🚀 마이크로 서비스 (Microservice)
+
+- **구조:** 하나의 요청 → 하나의 메서드 → 하나의 클래스
+- **장점:** 기능이 쪼개져 있어 재사용성이 매우 높음.
+- **추상화의 역할:** 시스템을 서비스 단위로 쪼개기 전, 전체적인 구조(Template)를 잡는 데 핵심적인 역할을 함.
+
+---
+
+## 🎭 다형성 (Polymorphism)
+
+### 1. 추상화 전: 개발자와 유저의 관점 차이
+
+동일한 기능(공격)임에도 불구하고 개발자마다 메서드 이름을 다르게 정의하면, 이를 사용하는 유저(호출자)는 각 클래스의 메서드 이름을 모두 외워야 하는 불편함이 발생합니다.
+
+**💻 코드 예시**
+
+```python
+# 개발자의 관점 (구현)
+class Terran:
+    def attack(self):
+        print("테란의 공격")
+
+class Zerg:
+    def attack(self):
+        print("저그의 공격")
+
+class Protoss:
+    def offense(self): # 동일한 기능이지만 이름이 다름 (공격)
+        print("프로토스의 공격")
+
+# 유저의 관점 (실행)
+star = Terran()
+star.attack()
+
+star = Zerg()
+star.attack()
+
+star = Protoss()
+star.offense() # 유저는 Protoss만 'offense'임을 따로 기억해야 함 (불편)
+```
+
+---
+
+### 2. 추상화 후: 강제성을 통한 인터페이스 통일
+
+`abc` 모듈을 사용하여 상위 클래스에서 메서드 이름을 **강제**하면, 모든 하위 클래스가 동일한 이름의 메서드를 가지게 되어 유저가 사용하기 훨씬 편리해집니다.
+
+**💻 코드 예시**
+
+```python
+import abc
+
+# 상위 클래스 (Template): 모든 종족은 'attack'이라는 이름을 써야 한다고 규정
+class Star(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def attack(self):
+        pass
+
+class Terran(Star):
+    def attack(self):
+        print("테란의 공격")
+
+class Zerg(Star):
+    def attack(self):
+        print("저그의 공격")
+
+class Protoss(Star):
+    # 만약 추상 메서드인 attack을 구현하지 않고 offense를 쓰면 에러 발생!
+    def attack(self): 
+        print("프로토스의 공격")
+
+# 유저의 관점 (실행) - 이제 모든 종족을 'attack()'으로 제어 가능
+units = [Terran(), Zerg(), Protoss()]
+
+for unit in units:
+    unit.attack() # 어떤 종족인지 몰라도 attack()만 부르면 됨 (다형성)
+```
+
+---
+
+### 💡 핵심 요약
+
+- **문제점:** 기능은 같은데 이름이 다르면(attack vs offense) 코드의 재사용성과 일관성이 떨어짐.
+- **해결책:** **추상 클래스(ABC)**를 통해 하위 클래스들이 동일한 메서드 이름을 구현하도록 강제함.
+- **결과:** 유저는 내부 구현을 몰라도 **하나의 인터페이스(attack)**만 알면 모든 객체를 다룰 수 있음 (**다형성 완성**).
+
+---
