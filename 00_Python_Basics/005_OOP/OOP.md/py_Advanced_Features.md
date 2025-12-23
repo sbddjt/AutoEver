@@ -182,7 +182,7 @@ print(result) # 출력: 홍길동 & 전우치의 연락처가 병합되었습니
 
 ---
 
-## 👆7. 싱글톤 패턴 (Singleton Pattern)
+## 👆6. 싱글톤 패턴 (Singleton Pattern)
 
 ### 1️⃣ 정의 및 목적
 
@@ -235,7 +235,7 @@ print(sub1 is sub2) # True (완전히 동일한 인스턴스임을 증명)`
 
 ---
 
-## 🧑‍🍼8. Inheritance (상속)
+## 🧑‍🍼7. Inheritance (상속)
 
 ### 📝 개요
 
@@ -356,7 +356,7 @@ sub.greeting()
 
 ---
 
-## 👨‍👨‍👦 9. 다중 상속 & 추상화 (Abstract)
+## 👨‍👨‍👦 8. 다중 상속 & 추상화 (Abstract)
 
 ## 1. 다중 상속 (Multiple Inheritance)
 
@@ -488,7 +488,7 @@ user.login("seongyun", "1234")
 
 ---
 
-## 🎭 10. 다형성 (Polymorphism)
+## 🎭 9. 다형성 (Polymorphism)
 
 ### 1. 추상화 전: 개발자와 유저의 관점 차이
 
