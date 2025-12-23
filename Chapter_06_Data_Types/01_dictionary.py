@@ -10,8 +10,10 @@ class Person:
 person1 = Person()
 person1.name = "adam"
 person1.age = 25
+# person1.irum = "eve" # 오류 발생
 
 person2 = {"name": "eve", "age": 22}
+person2["irum"] = "elsa"   # 딕셔너리는 자유롭게 키-값 쌍을 추가할 수 있음
 
 # 데이터를 출력하는 부분
 print(f"이름: {person1.name}, 나이: {person1.age}")
