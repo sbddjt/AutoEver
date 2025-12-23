@@ -235,7 +235,7 @@ print(sub1 is sub2) # True (완전히 동일한 인스턴스임을 증명)`
 
 ---
 
-# 🧑‍🍼8. Inheritance (상속)
+## 🧑‍🍼8. Inheritance (상속)
 
 ### 📝 개요
 
@@ -355,7 +355,8 @@ sub.greeting()
 ```
 
 ---
-# 👨‍👨‍👦 9. 다중 상속 & 추상화 (Abstract)
+
+## 👨‍👨‍👦 9. 다중 상속 & 추상화 (Abstract)
 
 ## 1. 다중 상속 (Multiple Inheritance)
 
@@ -487,7 +488,7 @@ user.login("seongyun", "1234")
 
 ---
 
-## 🎭 다형성 (Polymorphism)
+## 🎭 10. 다형성 (Polymorphism)
 
 ### 1. 추상화 전: 개발자와 유저의 관점 차이
 
