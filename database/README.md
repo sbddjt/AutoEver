@@ -1,6 +1,6 @@
 # 🗄️ Database (MariaDB & SQL)
 
-> **Hyundai AutoEver Mobility Embedded SW Academy - Cloud Track** > 데이터베이스의 원리를 이해하고 MariaDB와 DBeaver를 활용하여 효율적인 데이터 관리 및 설계를 학습하는 공간입니다.
+> **Hyundai AutoEver Mobility SW Academy - Cloud Track** > 데이터베이스의 원리를 이해하고 MariaDB와 DBeaver를 활용하여 효율적인 데이터 관리 및 설계를 학습하는 공간입니다.
 
 <div align="center">
   <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white"/>
