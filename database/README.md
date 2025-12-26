@@ -32,14 +32,14 @@
 - [x] 데이터베이스 사용자(User) 생성 및 권한 부여 (DCL)
 
 ### 2️⃣ SQL Fundamentals (DML, DQL)
-- [ ] **SELECT 문법**: 데이터 조회, Alias, DISTINCT
-- [ ] **조건절(WHERE)**: 비교 연산자, 논리 연산자, BETWEEN, IN, LIKE
-- [ ] **정렬 및 제한**: ORDER BY, LIMIT
-- [ ] **단일 행 함수**: 문자, 숫자, 날짜, 형변환 함수 (NULL 처리)
+- [x] **SELECT 문법**: 데이터 조회, Alias, DISTINCT
+- [x] **조건절(WHERE)**: 비교 연산자, 논리 연산자, BETWEEN, IN, LIKE
+- [x] **정렬 및 제한**: ORDER BY, LIMIT
+- [x] **단일 행 함수**: 문자, 숫자, 날짜, 형변환 함수 (NULL 처리)
 
 ### 3️⃣ Advanced SQL & Aggregation
-- [ ] **그룹 함수**: COUNT, SUM, AVG, MAX, MIN
-- [ ] **GROUP BY & HAVING**: 데이터 그룹화 및 필터링
+- [x] **그룹 함수**: COUNT, SUM, AVG, MAX, MIN
+- [x] **GROUP BY & HAVING**: 데이터 그룹화 및 필터링
 - [ ] **JOIN**: Inner Join, Outer Join(Left/Right), Self Join, Cross Join
 - [ ] **Subquery**: 단일행/다중행 서브쿼리, 인라인 뷰
 
