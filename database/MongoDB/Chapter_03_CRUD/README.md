@@ -1,4 +1,4 @@
-# 📂 3. CRUD (Create, Read, Update, Delete)
+# 🍃 3. CRUD (Create, Read, Update, Delete)
 
 ## 🔖 (참고) 기본 개념 및 환경
 
@@ -81,8 +81,15 @@ db.inventory.insert({
 **3. 배열 데이터의 처리**
 
 - 배열 자체를 저장할 수는 없고, **분할해서 삽입**되거나 **속성 값**으로 들어가야 합니다.
-- `db.users.insert([ {name:"matt"}, {name:"lara"} ])` → matt와 lara가 **각각 별도의 도큐먼트**로 저장됨.
-- `db.users.insert([1, 2])` → 값 없이 id만 저장되는 문제 발생 가능 (`{key: value}` 형태 준수).
+
+```jsx
+// 각 객체가 개별 도큐먼트로 저장됨
+db.users.insert([{ name: "matt" }, { name: "lara" }])
+
+// ⚠️ 주의: 값만 넣을 수 없음 (객체 형태여야 함)
+db.users.insert([1, 2]) // _id만 생성되고 값은 저장 안 됨
+// 올바른 예: { data: [], success: 'true' }
+```
 
 ### ⚙️ 멀티 스레드 vs 싱글 스레드 (Ordered 옵션)
 
@@ -112,13 +119,17 @@ db.sample.insert(
 
 - MongoDB의 고유 일련번호 (Primary Key 역할).
 - **12byte 구성.**
-- 직접 생성 시: `var newId = new ObjectId()`
+
+```jsx
+var newId = new ObjectId()
+db.sample.insert({ _id: newId, name: "user01" })
+```
 
 ### 🔹 insertOne & insertMany
 
 - **insertOne:** 하나만 삽입. `WriteConcern`(Lock 설정) 매개변수 사용 가능.
     
-    > WriteConcern? 데이터를 저장할 때 어디까지 확인하고 '성공' 처리할 것인가? (속도 vs 안전성). Kafka 등의 Message Broker가 이를 보완.
+    > **WriteConcern?** 데이터를 저장할 때 어디까지 확인하고 '성공' 처리할 것인가? (속도 vs 안전성). Kafka 등의 Message Broker가 이를 보완.
     > 
 - **insertMany:** 여러 개 삽입. `BulkWriteError`를 통해 성공/실패 개수 확인 가능.
 
@@ -168,6 +179,7 @@ mongoimport -d seongyun -c area < area.json
 
 ```jsx
 db.users.find({ name: "seongyun" })
+db.containerBox.find({ category: "animal", name: "bear" }) // AND 조건
 ```
 
 **2. 비교 연산자**
@@ -188,10 +200,13 @@ db.inventory.find({ tags: { $in: ["blank", "blue"] } })
 MongoDB에서는 **속성이 없는 경우도 `null`로 간주**합니다.
 
 ```jsx
-// y가 null이거나, y 필드 자체가 없는 도큐먼트 모두 검색됨
+// y가 null인 데이터 조회 (정상)
 db.c.find({ y: null })
 
-// 실제 값이 null이고 필드가 존재하는 경우만 검색하려면 $exists 사용
+// z 속성이 없는 데이터도 모두 조회됨 (문제 발생)
+db.c.find({ z: null })
+
+// ✅ 해결: 속성이 존재하면서($exists: true) 값이 null인 것만 조회
 db.c.find({ z: { $eq: null, $exists: true } })
 ```
 
@@ -227,8 +242,21 @@ db.users.find({ name: /ro$/ })
     - `$natural: 1` → 입력된 순서대로 정렬
 
 ```jsx
-// id 기준 오름차순 정렬
+// 1. limit(n): 2개만 조회
+db.users.find().limit(2)
+
+// 2. skip(n): 앞의 1개를 건너뛰고 나머지 조회
+db.users.find().skip(1)
+
+// 3. sort(): id 기준 오름차순 정렬 (1, 2, 3...)
 db.users.find().sort({ id: 1 })
+
+// 4. sort(): id 기준 내림차순 정렬 (3, 2, 1...)
+db.users.find().sort({ id: -1 })
+
+// 5. $natural: 입력된 순서(Natural Order) 기준 정렬
+// 일반적인 정렬과 달리 인덱스를 타지 않고 디스크 저장 순서를 따름
+db.users.find().sort({ $natural: 1 })
 ```
 
 ### 🔄 Cursor 메서드
