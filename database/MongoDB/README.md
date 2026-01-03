@@ -3,11 +3,10 @@
 > **Hyundai AutoEver Mobility SW Academy - Cloud Track** > 비정형 데이터 처리에 특화된 도큐먼트 지향 데이터베이스 MongoDB의 원리를 이해하고, 유연한 데이터 모델링 및 쿼리 최적화를 학습하는 공간입니다.
 
 <div align="center">
-<img src="[https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/MongoDB-47A248%3Fstyle%3Dfor-the-badge%26logo%3Dmongodb%26logoColor%3Dwhite)"/>
-<img src="[https://img.shields.io/badge/Compass-499D4A?style=for-the-badge&logo=mongodb&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Compass-499D4A%3Fstyle%3Dfor-the-badge%26logo%3Dmongodb%26logoColor%3Dwhite)"/>
-<img src="[https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/JSON-000000%3Fstyle%3Dfor-the-badge%26logo%3Djson%26logoColor%3Dwhite)"/>
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Compass-116149?style=for-the-badge&logo=mongodb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white"/>
 </div>
-
 ---
 
 ## 📖 Overview
