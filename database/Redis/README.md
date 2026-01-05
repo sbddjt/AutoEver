@@ -1,16 +1,15 @@
-# ⚡ In-Memory Data Store (Redis)
+# 🧧 In-Memory Data Store (Redis)
 
 > **Hyundai AutoEver Mobility SW Academy - Cloud Track** > 초고속 데이터 처리를 위한 인메모리 키-값 저장소 Redis의 핵심 자료구조를 익히고, 대용량 트래픽 처리를 위한 캐싱(Caching) 전략을 학습하는 공간입니다.
 
 <div align="center">
-<img src="[https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)"/>
-<img src="[https://img.shields.io/badge/Cache-005571?style=for-the-badge&logo=c&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Cache-005571%3Fstyle%3Dfor-the-badge%26logo%3Dc%26logoColor%3Dwhite)"/>
-<img src="[https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Docker-2496ED%3Fstyle%3Dfor-the-badge%26logo%3Ddocker%26logoColor%3Dwhite)"/>
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
+  <img src="https://img.shields.io/badge/RedisInsight-C03028?style=for-the-badge&logo=redis&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
 </div>
-
 ---
 
-## 🧧 Overview
+## 📖 Overview
 
 디스크 기반 데이터베이스의 부하를 줄이고, 마이크로서비스 간의 **고속 데이터 공유** 및 **세션 클러스터링**을 구현하기 위해 Redis를 학습합니다.
 메모리(RAM) 상에서 동작하는 **Key-Value** 구조를 이해하고, 다양한 **Data Types**를 활용하여 모빌리티 서비스의 실시간 랭킹, 위치 좌표 캐싱 등을 효율적으로 처리하는 방법을 실습합니다.
@@ -94,5 +93,3 @@ redis/
 ```
 
 ---
-
-**Would you like me to help you create the directory folders or draft the `01_setup` guide first?**
