@@ -1,0 +1,115 @@
+# --- 1) String (문자열) ---
+
+SET hello world
+# 옵션: 없을 때만 저장 (NX)
+SET hello mongodb NX
+# 옵션: 있을 때만 수정 (XX)
+SET hello mongodb XX
+
+# 숫자 연산 (Atomic)
+SET counter 100
+INCR counter        
+# -> 101 (1 증가)
+INCRBY counter 50   
+# -> 151 (50 증가)
+
+
+# --- 2) List (리스트) ---
+
+# 데이터 삽입
+LPUSH mylist E
+RPUSH mylist B
+# -> E, B
+
+# 데이터 조회
+LRANGE mylist 0 -1  
+# 전체 조회
+LRANGE mylist 0 3   
+# 인덱스 0~3 조회
+
+# 데이터 꺼내기
+LPOP mylist         
+# 왼쪽 (Queue)
+RPOP mylist         
+# 오른쪽 (Stack)
+
+# (실습용 데이터 추가)
+LPUSH mylist A B C
+
+# 데이터 정리 (Trim)
+LTRIM mylist 0 1    
+# 0~1번 인덱스만 남기고 삭제
+
+# 데이터 수정/삽입
+LINSERT mylist BEFORE A E  
+# A 앞에 E 삽입
+LSET mylist 2 F            
+# 2번 인덱스 값 수정
+LINDEX mylist 2            
+# 2번 인덱스 값 조회
+
+
+# --- 3) Hash (해시) ---
+
+# 데이터 추가
+HSET product:123 Name "Happy Things"
+HSET product:123 TypeID 35
+# 한 번에 추가
+HSET product:123 Name "Track Ball" TypeID 32
+
+# 데이터 조회
+HGET product:123 Name           
+# 특정 필드
+HMGET product:123 TypeID Name   
+# 여러 필드
+HGETALL product:123             
+# 전체 필드
+HLEN product:123                
+# 필드 개수
+
+# 데이터 삭제
+HDEL product:123 Name
+
+
+# --- 4) Set (집합) ---
+
+# 데이터 저장 (중복 자동 제거)
+SADD myset A
+SADD myset A A A D D B B B B E E
+
+# 조회 및 삭제
+SMEMBERS myset  
+# 전체 조회
+SREM myset B    
+# 특정 값 삭제
+SPOP myset      
+# 랜덤 삭제
+
+
+# --- 5) Sorted Set (정렬된 집합) ---
+
+# 데이터 저장 (스코어 포함)
+ZADD score:260105 100 user:B
+ZADD score:260105 150 user:A 150 user:C 200 user:F 300 user:E
+
+# 데이터 조회 (인덱스 기준)
+ZRANGE score:260105 1 3 WITHSCORES
+ZRANGE score:260105 1 3 WITHSCORES REV  
+# (구버전은 ZREVRANGE 사용)
+
+# 데이터 조회 (스코어 기준)
+ZRANGEBYSCORE score:260105 100 150 WITHSCORES
+
+
+# --- 7) HyperLogLog & 8) Geospatial ---
+
+# HyperLogLog (카디널리티 추정)
+PFADD members 123
+PFADD members 500
+PFADD members 123
+PFADD members 12
+PFCOUNT members
+
+# Geospatial (지리 정보)
+GEOADD travel 14.3996 50.099242 Prague
+GEOADD travel 127.0016 37.5642 Seoul -122.4345 37.7853 Sanfrancisco
