@@ -1,0 +1,62 @@
+# --- 1. 키의 자동 생성과 삭제 로직 ---
+
+# 리스트 생성 및 삭제 테스트
+DEL mylist
+LPUSH mylist 1 2 3
+EXISTS mylist 
+# -> 1 (있음)
+
+LPOP mylist
+LPOP mylist
+LPOP mylist
+EXISTS mylist 
+# -> 0 (없음, 자동 삭제됨)
+
+# 빈 키에 대한 동작 (에러 아님)
+DEL mylist
+LLEN mylist    
+# -> 0
+LPOP mylist    
+# -> nil
+
+
+# --- 2. Key 관리 명령어 ---
+
+# 패턴 조회 (KEYS 대신 SCAN 권장)
+KEYS *
+SCAN 0 MATCH * COUNT 10
+
+# 정렬 (SORT)
+DEL mylist
+LPUSH mylist a
+LPUSH mylist b
+LPUSH mylist c
+LPUSH mylist HELLO
+
+# SORT mylist 
+# -> 에러 발생 (문자열 정렬 불가)
+SORT mylist ALPHA 
+# -> 정상 정렬 (ALPHA 옵션)
+
+# 이름 변경 (RENAME)
+SET a apple
+RENAME a aa
+GET aa
+
+# 복제 (COPY)
+SET B BANANA
+COPY B BB REPLACE 
+# REPLACE: 덮어쓰기 허용
+GET BB
+
+# 타입 확인 (TYPE)
+TYPE BB
+
+# 키 삭제 (DEL vs UNLINK)
+DEL aa
+# 동기 삭제
+UNLINK BB
+# 비동기 삭제 (권장)
+
+# 만료 시간 확인
+TTL BB
