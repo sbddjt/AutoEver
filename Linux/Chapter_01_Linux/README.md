@@ -15,7 +15,7 @@
 
 ### 2) 리눅스 계통도 (Distributions)
 
-![image.png](attachment:e3f2ed25-3634-419e-9d03-4a40ba73ab46:image.png)
+<img width="846" height="379" alt="Image" src="https://github.com/user-attachments/assets/fdb34d79-3766-4a7a-b728-ec9d30e4802f" />
 
 - **데비안(Debian) 계열**: 우분투(Ubuntu) Linux → *플랫폼 기업 선호*
 - **레드햇(RedHat) 계열**: 페도라(Fedora), CentOS(Rocky), RHEL → *대기업 선호*
@@ -23,7 +23,7 @@
 
 ### 3) 운영체제의 구조 🏗️
 
-![image.png](attachment:107c3ea1-c3e9-4c28-bdb0-b11fec9943a0:image.png)
+<img width="369" height="189" alt="Image" src="https://github.com/user-attachments/assets/567ff793-83ca-4e07-b7dd-e6858e6e9acd" />
 
 1. **Kernel (커널)**
     - 운영체제의 핵심 (Core)
