@@ -88,29 +88,40 @@ Host OS에 Guest OS를 설치할 수 있게 해주는 소프트웨어
 
 - 다운로드: [VirtualBox.org](https://www.virtualbox.org/wiki/Downloads)
 - *주의*: 설치 시 Visual C++ 재배포 패키지 요구 가능
+![image.png](attachment:c7d369f4-90af-45d6-8a31-fac77260f61f:image.png)
 
 ### 3) 설치 프로세스 및 설정 ✅
+![image.png](attachment:8c71535d-3137-4156-8a5e-54b332eac021:image.png)
 
 1. **VM 생성**
-    - `새로 만들기` 클릭 → 이름 및 경로 설정
-    - ISO Image 선택 (다운로드 받은 파일)
-    - **⚠️ 중요**: `Proceed with Unattended Installation` (무인 설치) **해제**
+![image.png](attachment:9372f548-c261-4464-b82d-17af973921b6:image.png)
+- `새로 만들기` 클릭 → 이름 및 경로 설정
+- ISO Image 선택 (다운로드 받은 파일)
+- **⚠️ 중요**: `Proceed with Unattended Installation` (무인 설치) **해제**
+    - **계정 설정:** `vboxuser` 대신 **내가 원하는 ID와 비밀번호**를 쓰기 위해
+    - **세부 제어:** 언어, 키보드, 파티션 등을 **직접 설정(학습)**하기 위해
+    - **오류 방지:** 자동 설치 스크립트 충돌로 인한 **설치 오류를 막기 위해**
     
-2. **하드웨어 설정**
+2. **하드웨어 및 디스크 사이즈 설정**
+![image.png](attachment:9372f548-c261-4464-b82d-17af973921b6:image.png)
     - CPU/Memory 설정
     - 📌 **K8s(쿠버네티스) 마스터 노드 권장**: **CPU 2코어 이상**
-    
-3. **디스크 사이즈 설정**
 
-1. **초기 설정 (부팅 후)**
+3. **초기 설정 (부팅 후)**
     - 언어 선택 (Server 버전은 한국어 ❌)
+   ![image.png](attachment:7553fede-4deb-45ed-a266-867d805e7e65:image.png)
     - **네트워크(NIC) 확인**: `enp0s3` (기본 NIC 이름) / `dhcpv4` (IP 자동 할당)
+   ![image.png](attachment:fe39a1c5-5652-460b-b810-d5772bbfc8d2:image.png)
     - **Proxy:** 설정 없음 (Done)
         - Proxy란? 클라이언트와 서버 사이에서 데이터 전달하는 중재자 역할 (보안)
+   ![image.png](attachment:5e4fa1f6-44a4-402d-87fb-c27a21e08f53:image.png)
     - 디스크 및 파일시스템 설정
+   ![image.png](attachment:c32c29f7-aa97-4a21-bc5e-2154283f997a:image.png)
     - 계정 설정 (컴퓨터 이름, 유저명)
+   ![image.png](attachment:8561f9be-591a-40bd-8d1a-d79f52c21d35:image.png)
     - **SSH Server 설치 여부 체크 (스페이스바)**
         - Windows에서 원격 접속하기 위함 (Putty, OpenSSH 등)
+   ![image.png](attachment:bea78094-c2d6-4675-a0d1-898201b5a0f8:image.png)
 
 ---
 
