@@ -85,16 +85,16 @@ Host OS에 Guest OS를 설치할 수 있게 해주는 소프트웨어
     - 다운로드: [Ubuntu Desktop Download](https://ubuntu.com/download/desktop)
 
 ### 2) Virtual Box 설치 📦
-
+<img width="614" height="483" alt="Image" src="https://github.com/user-attachments/assets/4ca0ef30-19af-4bc8-8d9d-92474940b439" />
 - 다운로드: [VirtualBox.org](https://www.virtualbox.org/wiki/Downloads)
 - *주의*: 설치 시 Visual C++ 재배포 패키지 요구 가능
-![image.png](attachment:c7d369f4-90af-45d6-8a31-fac77260f61f:image.png)
+
 
 ### 3) 설치 프로세스 및 설정 ✅
-![image.png](attachment:8c71535d-3137-4156-8a5e-54b332eac021:image.png)
+<img width="955" height="902" alt="Image" src="https://github.com/user-attachments/assets/02554a5d-17d5-4a0f-bbb2-a98c66e154be" />
 
 1. **VM 생성**
-![image.png](attachment:9372f548-c261-4464-b82d-17af973921b6:image.png)
+<img width="977" height="495" alt="Image" src="https://github.com/user-attachments/assets/4febdbc4-b9d8-4e98-b3ba-24967573877c" />
 - `새로 만들기` 클릭 → 이름 및 경로 설정
 - ISO Image 선택 (다운로드 받은 파일)
 - **⚠️ 중요**: `Proceed with Unattended Installation` (무인 설치) **해제**
@@ -103,26 +103,30 @@ Host OS에 Guest OS를 설치할 수 있게 해주는 소프트웨어
     - **오류 방지:** 자동 설치 스크립트 충돌로 인한 **설치 오류를 막기 위해**
     
 2. **하드웨어 및 디스크 사이즈 설정**
-![image.png](attachment:9372f548-c261-4464-b82d-17af973921b6:image.png)
+<img width="975" height="496" alt="Image" src="https://github.com/user-attachments/assets/2a5ca2a4-64eb-4e3c-b083-66999a344315" />
     - CPU/Memory 설정
     - 📌 **K8s(쿠버네티스) 마스터 노드 권장**: **CPU 2코어 이상**
 
 3. **초기 설정 (부팅 후)**
     - 언어 선택 (Server 버전은 한국어 ❌)
-   ![image.png](attachment:7553fede-4deb-45ed-a266-867d805e7e65:image.png)
+   <img width="848" height="572" alt="Image" src="https://github.com/user-attachments/assets/a4257efa-5564-45c9-a78c-2edd1370faf1" />
+
     - **네트워크(NIC) 확인**: `enp0s3` (기본 NIC 이름) / `dhcpv4` (IP 자동 할당)
-   ![image.png](attachment:fe39a1c5-5652-460b-b810-d5772bbfc8d2:image.png)
+    <img width="1083" height="482" alt="Image" src="https://github.com/user-attachments/assets/90a68d57-6c70-4140-a72e-40ff581c30e5" />
+    
     - **Proxy:** 설정 없음 (Done)
         - Proxy란? 클라이언트와 서버 사이에서 데이터 전달하는 중재자 역할 (보안)
-   ![image.png](attachment:5e4fa1f6-44a4-402d-87fb-c27a21e08f53:image.png)
+    <img width="1088" height="424" alt="Image" src="https://github.com/user-attachments/assets/feb68a31-8a91-4a94-aa7c-5f74c667afee" />
+    
     - 디스크 및 파일시스템 설정
-   ![image.png](attachment:c32c29f7-aa97-4a21-bc5e-2154283f997a:image.png)
+    <img width="1103" height="572" alt="Image" src="https://github.com/user-attachments/assets/633ac841-550f-4edc-b62f-820710145c23" />
+   
     - 계정 설정 (컴퓨터 이름, 유저명)
-   ![image.png](attachment:8561f9be-591a-40bd-8d1a-d79f52c21d35:image.png)
+    <img width="1104" height="422" alt="Image" src="https://github.com/user-attachments/assets/a8296966-ff76-473c-a3f6-51ef14b75c01" />
+    
     - **SSH Server 설치 여부 체크 (스페이스바)**
         - Windows에서 원격 접속하기 위함 (Putty, OpenSSH 등)
-   ![image.png](attachment:bea78094-c2d6-4675-a0d1-898201b5a0f8:image.png)
-
+    <img width="1093" height="451" alt="Image" src="https://github.com/user-attachments/assets/675e6693-6ada-4b9e-8e9d-ae859a421691" />
 ---
 
 ## 4. Ubuntu Server에 Open SSH 설치 및 접속
