@@ -64,7 +64,7 @@
 cat /etc/shells
 ```
 
-![image.png](attachment:7c02bb3c-91d3-44d8-8530-7fc833f53321:image.png)
+<img width="748" height="301" alt="Image" src="https://github.com/user-attachments/assets/6c728580-e166-44fe-89a8-a36fbf6075bb" />
 
 ---
 
@@ -79,7 +79,7 @@ cat /etc/shells
 grep seongyun /etc/passwd
 ```
 
-![image.png](attachment:28558533-61b8-4ab6-9286-3ecee72e9c47:image.png)
+<img width="685" height="47" alt="Image" src="https://github.com/user-attachments/assets/517484f4-8de9-4be7-ace1-463239ede265" />
 
 ### 2) 쉘 변경 명령어 (`chsh`)
 
@@ -156,7 +156,7 @@ printf "linux\n"          # 줄바꿈 포함
 printf "%d + %d = %d\n" 1 3 4  # 서식 지정 출력
 ```
 
-![image.png](attachment:cd008707-05e5-4624-a83e-b64ef5349b3b:image.png)
+<img width="638" height="117" alt="Image" src="https://github.com/user-attachments/assets/fe371db8-7d49-4be1-ac30-dc4a4cd625a2" />
 
 ---
 
@@ -192,8 +192,7 @@ printf "%d + %d = %d\n" 1 3 4  # 서식 지정 출력
     echo "Today is `date`"  # date 명령 실행 결과 출력
     ```
     
-    ![image.png](attachment:caa8a174-bcc6-42a7-af33-13efcaca52a9:image.png)
-    
+    <img width="629" height="92" alt="Image" src="https://github.com/user-attachments/assets/b475170d-29b1-4e8c-9f80-9a42436cb312" />
 
 - **`;` (세미콜론)**: 여러 명령 순차 실행 (앞 명령 실패해도 계속 진행)
 - **`&&`**: 앞 명령이 **성공해야만** 다음 명령 수행
@@ -203,7 +202,7 @@ printf "%d + %d = %d\n" 1 3 4  # 서식 지정 출력
     cd no_exist_dir && echo "이 문장은 출력되지 않습니다."
     ```
     
-    ![image.png](attachment:9bda3100-3780-492f-8105-c0016dfa9fd0:image.png)
+    <img width="760" height="165" alt="Image" src="https://github.com/user-attachments/assets/f278fc40-6972-4b0f-b167-f69e2a63e20e" />
     
 - **`|` (파이프)**: 앞 명령의 결과를 뒤 명령의 입력으로 전달 (`ls -al | more`)
 - **`\`**: 특수문자 기능 무력화 (문자 그대로 취급)
@@ -212,7 +211,7 @@ printf "%d + %d = %d\n" 1 3 4  # 서식 지정 출력
     echo "Price is \$100"
     ```
     
-    ![image.png](attachment:7beb2b20-c852-4bbd-878a-f0dd25a22094:image.png)
+    <img width="743" height="46" alt="Image" src="https://github.com/user-attachments/assets/69e93956-1d96-4c94-a061-7a87fda645e9" />
     
 
 - **`' '` (작은따옴표)**: 모든 특수문자 무력화
@@ -230,7 +229,7 @@ printf "%d + %d = %d\n" 1 3 4  # 서식 지정 출력
     # 출력 결과: Hello
     ```
     
-    ![image.png](attachment:2ce4dfa8-a6bd-4d77-88f8-6dc706e3b7d1:image.png)
+    <img width="763" height="94" alt="Image" src="https://github.com/user-attachments/assets/0b4e75d8-941f-4b0d-a621-9c530283bbf1" />
     
 
 ---
@@ -349,9 +348,9 @@ PS1='[\u \T] \!$ '    # 사용자, 시간, 히스토리 번호 등으로 커스�
 PS1=$PROMPT           # 복구
 ```
 
-![image.png](attachment:acfe6442-ca24-42d9-ab9a-184b82498a9a:image.png)
+<img width="509" height="50" alt="Image" src="https://github.com/user-attachments/assets/09084ec1-e5a9-4df1-9954-d689164eac2b" />
 
-![image.png](attachment:1f567fd7-1824-4f1d-8697-b54768e14a79:image.png)
+<img width="483" height="59" alt="Image" src="https://github.com/user-attachments/assets/be306267-2373-4d18-8299-779cf9ea388d" />
 
 **2. PATH (가장 중요 ⭐)**
 
@@ -405,11 +404,11 @@ echo $PATH   # 성공
 
 - **현재 로케일 확인:** `echo $LANG`
 
-![image.png](attachment:2b47a9df-3c34-4145-9154-b64a5fe05614:image.png)
+<img width="630" height="42" alt="Image" src="https://github.com/user-attachments/assets/5e5f15c6-12e0-4360-8d81-f0693d6f6394" />
 
 - **지원 로케일 확인:** `locale -a`
 
-![image.png](attachment:d54fa30a-cf2f-49bf-8496-9f26d7ea80e1:image.png)
+<img width="543" height="144" alt="Image" src="https://github.com/user-attachments/assets/8dc8c22b-f7bc-4b2b-9b40-02dc6ceac149" />
 
 - **한국어 패키지 설치 및 설정:**
 
