@@ -39,7 +39,7 @@
 sudo nano /etc/default/grub
 ```
 
-![image.png](attachment:e0146d64-2c78-4db8-a5d0-2f6bd4520766:image.png)
+<img width="838" height="749" alt="Image" src="https://github.com/user-attachments/assets/fce0f5ad-ecd2-4fa0-96aa-a5ab4da1c8d4" />
 
 - `GRUB_TIMEOUT_STYLE=hidden` 주석 처리 → 메뉴 강제 출력
 - `GRUB_TIMEOUT=10` → 메뉴 대기 시간 설정 (초 단위)
@@ -106,14 +106,15 @@ sudo update-grub
 systemctl status cron    # 상태 확인
 ```
 
-![image.png](attachment:e51a90e0-7059-446d-bf27-0def5a8dd20c:image.png)
+<img width="823" height="502" alt="Image" src="https://github.com/user-attachments/assets/4154681b-51e6-4137-a4dd-e3544baf6258" />
+
 
 ```bash
 systemctl stop cron      # 중지
 systemctl is-active cron # 동작 여부 확인
 ```
 
-![image.png](attachment:afd0eae6-87af-404e-ac66-0ae7cddb25ae:image.png)
+<img width="832" height="627" alt="Image" src="https://github.com/user-attachments/assets/2cd344fb-119f-4e10-8ab7-cb08bab8f917" />
 
 ### 2-4. 런레벨(Runlevel)과 Target
 
@@ -187,7 +188,7 @@ sudo systemctl isolate reboot.target   # 재부팅
 - `halt`, `poweroff`, `reboot` 명령어는 실제로는 `systemctl`을 가리키는 **심볼릭 링크**입니다.
 - 확인: `ls -l /sbin/reboot`
 
-![image.png](attachment:f1c2b669-3b08-4fbb-95d5-dad51e5bec13:image.png)
+<img width="836" height="193" alt="Image" src="https://github.com/user-attachments/assets/6187833a-dd18-4a86-85e3-00278b63d75d" />
 
 ---
 
@@ -209,7 +210,7 @@ sudo systemctl isolate reboot.target   # 재부팅
     - `ps` 명령 시 이름이 **대괄호 `[ ]`** 로 감싸져 있음.
 - **역할:** 메모리 관리(swap), 디스크 동기화, 입출력 처리 등.
 
-![image.png](attachment:7c3f88ee-3d44-4467-b5d3-122ccc03aa5a:image.png)
+<img width="824" height="692" alt="Image" src="https://github.com/user-attachments/assets/ab393229-ff6e-4fd7-b331-0c6635f430c6" />
 
 ### 4-3. 주요 데몬 목록
 
