@@ -80,25 +80,13 @@
 
 ### 2) 계층별 상세 비교 (매핑 테이블)
 
-| **TCP/IP 계층** | **OSI 7계층** | **데이터 단위 (PDU)** | **주요 프로토콜 및 특징** |
-| --- | --- | --- | --- |
-| **4. 응용**
-(Application) | 7. Application
-6. Presentation
-5. Session | **Data / Message** | **HTTP, FTP, DNS, SMTP, SSH, Telnet**
-사용자 서비스 제공 |
-| **3. 전송**
-(Transport) | 4. Transport | **Segment** (TCP)
-**Datagram** (UDP) | **TCP, UDP**
-포트 번호를 통한 프로세스 식별 |
-| **2. 인터넷**
-(Internet) | 3. Network | **Packet** | **IP, ICMP, ARP, RARP**
-IP 주소를 통한 경로 선택 |
-| **1. 네트워크 인터페이스**
-(Network Interface) | 2. Data Link | **Frame** | **Ethernet, Switch, MAC 주소**
-물리적 주소 식별 |
-| (위와 동일) | 1. Physical | **Bit** | **Cable, Hub**
-전기/광 신호 변환 |
+| TCP/IP 계층 | OSI 7계층 | 데이터 단위 (PDU) | 주요 프로토콜 및 특징 |
+| :--- | :--- | :--- | :--- |
+| **4. 응용**<br>(Application) | 7. Application<br>6. Presentation<br>5. Session | **Data / Message** | **HTTP, FTP, DNS, SMTP, SSH, Telnet**<br>사용자 서비스 제공 |
+| **3. 전송**<br>(Transport) | 4. Transport | **Segment** (TCP)<br>**Datagram** (UDP) | **TCP, UDP**<br>포트 번호를 통한 프로세스 식별 |
+| **2. 인터넷**<br>(Internet) | 3. Network | **Packet** | **IP, ICMP, ARP, RARP**<br>IP 주소를 통한 경로 선택 |
+| **1. 네트워크 인터페이스**<br>(Network Interface) | 2. Data Link | **Frame** | **Ethernet, Switch, MAC 주소**<br>물리적 주소 식별 |
+| (위와 동일) | 1. Physical | **Bit** | **Cable, Hub**<br>전기/광 신호 변환 |
 
 ---
 
