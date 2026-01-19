@@ -264,3 +264,75 @@
     - **FTP**: 파일 전송.
     - **SMTP**: 이메일 전송.
     - **SSH**: 원격 접속.
+
+  
+---
+
+## 4. Encapsulation & Decapsulation (캡슐화 & 역캡슐화)
+
+<img width="591" height="310" alt="Image" src="https://github.com/user-attachments/assets/10680cc1-7bdc-4d05-9340-ac5847ec6c79" />
+
+### 1) 개요
+
+**🔄 데이터 전송 과정**
+
+- 상위 계층에서 하위 계층으로 데이터를 보내면, 물리 계층에서 전기 신호로 변환하여 네트워크를 통해 전송함.
+- 받는 쪽에서는 다시 하위 계층에서 상위 계층으로 데이터를 역으로 올려보내며 원본 데이터를 확인.
+
+**📦 상세 동작 (캡슐화 과정)**
+
+1. **Application ➡️ Presentation**: 데이터 압축이나 암호화 진행.
+2. **➡️ Session**: 연결 유지 정보 추가.
+3. **➡️ Transport (4계층)**: 4계층 헤더(**Port**)를 붙여 **Segment** 생성.
+4. **➡️ Network (3계층)**: 3계층 헤더(**IP**)를 붙여 **Packet** 생성.
+5. **➡️ Data Link (2계층)**: 2계층 헤더(**MAC Address**)를 붙여 **Frame** 생성.
+6. **➡️ Physical (1계층)**: 전기 신호로 변환하여 전송.
+7. *(수신 측에서는 이 과정을 역으로 수행하여 헤더를 하나씩 열어서 해석)*
+
+---
+
+### 2) 주요 포트 번호 (Port Numbers)
+
+### ① Well-Known Ports (0 ~ 1023)
+
+- **정의**: IANA(국제 인터넷 주소 관리 기구)에서 주요 서비스용으로 미리 할당해 놓은 번호.
+
+| **포트 번호** | **서비스** | **설명** |
+| --- | --- | --- |
+| **TCP 20, 21** | **FTP**
+(File Transfer Protocol) | 파일 전송 프로토콜 |
+| **TCP 22** | **SSH**
+(Secure Shell) | 원격 접속 및 보안 셸 |
+| **TCP 23** | **TELNET**
+(Telnet Terminal) | 원격 터미널 접속 |
+| **TCP 25** | **SMTP**
+(Simple Mail Transport Protocol) | 이메일 발송 프로토콜 |
+| **UDP 49** | **TACACS**
+(Terminal Access Controller Access Control System) | 네트워크 장비 사용자 인증 및 권한 부여
+(Authentication, Authorization, Accounting) |
+| **TCP/UDP 53** | **DNS**
+(Domain Name Service) | 도메인 이름 서비스 |
+| **UDP 67, 68** | **BOOTP**
+(Bootstrap Protocol) | 네트워크 장비 부팅 시 IP 및 설정 정보를 할당받기 위한 프로토콜 |
+| **TCP/UDP 80** | **HTTP**
+(HyperText Transfer Protocol) | 웹 서비스 프로토콜 |
+| **UDP 123** | **NTP**
+(Network Time Protocol) | 네트워크 시간 동기화 프로토콜 |
+| **UDP 161, 162** | **SNMP**
+(Simple Network Management Protocol) | 네트워크 관리 프로토콜 |
+| **TCP 443** | **HTTPS** | 보안 웹 서비스 프로토콜 |
+| **TCP/UDP 445** | **Microsoft-DS** | Microsoft 디렉토리 서비스 |
+
+### ② Registered Ports (1024 ~ 49151)
+
+- **정의**: 특정 애플리케이션이나 기업이 등록해서 사용하는 포트.
+- **주요 예시**:
+    - **3306**: MySQL, MariaDB
+    - **5432**: PostgreSQL
+    - **6379**: Redis DB
+    - **27017**: Mongo DB
+    - **1521**: Oracle
+
+### ③ Dynamic/Private Ports (49152 ~ 65535)
+
+- **정의**: 클라이언트가 서버에 접속할 때 OS로부터 **임시로 할당받는 포트**.
